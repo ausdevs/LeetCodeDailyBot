@@ -64,8 +64,8 @@ def get_daily(session):
     response = session.post(lc_url, data=data)
     lc_data = response.json()["data"]["activeDailyCodingChallengeQuestion"]
 
-    lc_date, lc_link, lc_question = lc_data.values()
-    lc_difficulty, lc_id, lc_title = lc_question.values()
+    lc_date, lc_link, lc_question = lc_data["date"], lc_data["link"], lc_data["question"]
+    lc_difficulty, lc_id, lc_title = lc_question["difficulty"], lc_question["questionFrontendId"], lc_question["title"]
     return lc_title, lc_link, lc_difficulty, lc_date, lc_id
 
 
